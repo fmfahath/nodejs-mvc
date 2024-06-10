@@ -5,7 +5,11 @@ exports.loginPage = (req, res, next) => {
 }
 
 exports.dashboardPage = (req, res, next) => {
-    res.render('dashboard')
+    const user = getUser(req.query.email)
+    res.render('dashboard', {
+        // user : user
+        user
+    })
 }
 
 exports.loginProcess = (req, res, next) => {
@@ -14,7 +18,7 @@ exports.loginProcess = (req, res, next) => {
     const user = getUser(req.body.email)
 
     if (user !== null && user.password === req.body.password) {
-        res.redirect('/dashboard')
+        res.redirect('/dashboard?email=' + req.body.email)
     }
     else if (user === null) {
         res.render('error', {
