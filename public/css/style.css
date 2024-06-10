@@ -1,0 +1,40 @@
+body {
+    background-color: #232323;
+    color: orange;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 8px 12px;
+}
+
+input[type=submit] {
+    margin-top: 10px;
+    width: 40%;
+    margin: 0 auto;
+    padding: 8px 12px;
+    background-color: orange;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(240, 137, 20);
+}
