@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const exhbs = require('express-handlebars')
-const { loginPage, dashboardPage, loginProcess } = require('./controllers/userController')
 const path = require('path');
+const userRoutes = require('./routes/user')
 
 //handlebars engine
 app.engine('hbs', exhbs.engine({ extname: 'hbs', defaultLayout: false, }))
@@ -14,11 +14,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 //parse body
 app.use(express.urlencoded())
 
-app.get('/', loginPage)
-app.get('/dashboard', dashboardPage)
-app.post('/login', loginProcess)
-
-
+//routes
+app.use(userRoutes)
 
 app.listen(8000, () => {
     console.log("Listening port: 8000..")
