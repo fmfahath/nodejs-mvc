@@ -1,6 +1,9 @@
 
-const loginPage = (req, res, next) => {
+exports.loginPage = (req, res, next) => {
     res.render('login')
 }
 
-module.exports = loginPage;
+exports.dashboardPage = (req, res, next) => {
+    res.render('dashboard')
+}
+

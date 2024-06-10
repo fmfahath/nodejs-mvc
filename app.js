@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const exhbs = require('express-handlebars')
-const loginPage = require('./controllers/userController')
+const { loginPage, dashboardPage } = require('./controllers/userController')
 const path = require('path');
 
 //handlebars engine
@@ -12,6 +12,7 @@ app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', loginPage)
+app.get('/dashboard', dashboardPage)
 
 app.listen(8000, () => {
     console.log("Listening port: 8000..")
